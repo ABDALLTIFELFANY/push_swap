@@ -6,7 +6,7 @@
 /*   By: abelfany <abelfany@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 12:40:19 by abelfany          #+#    #+#             */
-/*   Updated: 2022/12/07 21:15:30 by abelfany         ###   ########.fr       */
+/*   Updated: 2022/12/09 11:35:20 by abelfany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,17 @@
 
 int	ft_isalpha(char *c)
 {
-    while(*c)
+    int a;
+ 
+    a = -1;
+    if(c[0] == '-')
+        a++;
+    while(c[a++])
     {
-        if(*c >= 48 && *c <= 57)
-		    return (0);
-        c++;
+        if((c[a] >= 32 && c[a] <= 47) || (c[a] >= 58 && c[a] <= 127))
+		    return (1);
     }
-	return (1);
+	return (0);
 }
 void check_case(char **tar)
 {
@@ -40,7 +44,7 @@ void check_case(char **tar)
                 exit(0);
             }
             long long x = atoi(tar[a]);
-            if(ft_isalpha(tar[b]) == 1 || x > INT_MAX || x < INT_MIN)
+            if(ft_isalpha(tar[a]) == 1 || x > INT_MAX || x < INT_MIN)
             {
                 write(1, "Erorr!\n", 7);
                 exit(0);
@@ -48,8 +52,4 @@ void check_case(char **tar)
         }
         a++;
     }
-}
-int main(int ac, char **av)
-{
-    check_case(av+1);   
 }

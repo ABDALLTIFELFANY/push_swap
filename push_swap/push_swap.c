@@ -6,15 +6,15 @@
 /*   By: abelfany <abelfany@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 10:46:54 by abelfany          #+#    #+#             */
-/*   Updated: 2022/12/07 18:57:31 by abelfany         ###   ########.fr       */
+/*   Updated: 2022/12/09 19:03:25 by abelfany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-void arraylen(int *tab)
-{
-	printf("%lu", sizeof(tab)/sizeof(tab[0]));
-}
+// void arraylen(int *tab)
+// {
+// 	printf("%lu", sizeof(tab)/sizeof(tab[0]));
+// }
 int ft_strlen(char *str)
 {
 	int x = 0;
@@ -50,34 +50,34 @@ long long	ft_atoi(const char *str)
 	}
 	return (res * nb);
 }
-t_nvr *stack_b(int a)
-{
-	t_nvr *x = malloc(sizeof(t_nvr));
-	x = newlst(&a);
-	return x;
-}
+
+// t_nvr *stack_b(int n)
+// {
+// 	ft_lstadd_back(newlst(n), n);
+// }
 
 void push_swap(char **sot, int cnt)
 {
 	t_var	x;
+	t_nvr	*t;
 	
+	t = NULL;
 	x.a = 0;
 	x.b = 0;
 	x.x = 0;
 	x.str = ft_strjoin(cnt, sot, " ");
 	sot = ft_split(x.str, ' ');
 	check_case(sot);
-    x.tab = malloc(cnt * sizeof(int));
-    while(sot[x.a])
-        x.tab[x.b++] = ft_atoi(sot[x.a++]);
-	check_sort(x.tab, cnt - 1);
-	sortadd(x.tab, x.a);
-	 //while(x.a < cnt - 1)
-	// 	tab1 = (int *)stack_b(x.tab[a++]);
-	// x.b = 0;
-	// while(x.b < x.a)
-	// 	printf("%d\n", x.tab[x.b++]);
-	
+	while(x.a < cnt - 1)
+		insert(&t,ft_atoi(sot[x.a++]));
+	// check_sort(t);
+	// ft_lstdelone(t);
+	//sortadd(x.tab, x.a);
+	while(t != NULL)
+	{
+		printf("%d\n", t -> stack);
+		t = t -> next;
+	}
 }
 int main(int ac, char **av)
 {

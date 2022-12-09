@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newlst.c                                           :+:      :+:    :+:   */
+/*   instructions.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelfany <abelfany@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/27 11:43:23 by abelfany          #+#    #+#             */
-/*   Updated: 2022/11/27 11:46:03 by abelfany         ###   ########.fr       */
+/*   Created: 2022/12/08 16:19:33 by abelfany          #+#    #+#             */
+/*   Updated: 2022/12/08 18:36:18 by abelfany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_nvr	*newlst(int *val)
+void sa(int *tab)
 {
-	t_nvr	*hel;
+    int a;
 
-	hel = malloc(sizeof(t_nvr));
-	if (!hel)
-		return (0);
-	hel -> stack = val;
-	return (hel);
+    a = tab[0];
+    tab[0] = tab[1];
+    tab[1] = a;
+    write(1, "sa\n", 3);
 }
+// void sa

@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_sort.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelfany <abelfany@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/05 12:40:12 by abelfany          #+#    #+#             */
-/*   Updated: 2022/12/09 16:18:22 by abelfany         ###   ########.fr       */
+/*   Created: 2022/11/27 11:43:23 by abelfany          #+#    #+#             */
+/*   Updated: 2022/12/09 19:06:45 by abelfany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int check_sort(t_nvr *t)
+void    insert(t_nvr **root, int item)
 {
-    int j;
+    t_nvr   *temp;
+    t_nvr   *ptr;
 
-    j = 0;
-    while(t != NULL && t -> next)
-    {  
-        if((t -> stack) > (t -> next -> stack))
-            j = 1;
-        t = t -> next;
+    temp = malloc(sizeof(t_nvr));
+    temp->stack = item;
+    temp->next = NULL;
+    if (*root == NULL)
+        *root = temp;
+    else 
+    {
+        ptr = *root;
+        while (ptr->next != NULL)
+            ptr = ptr->next;
+        ptr->next = temp;
     }
-    if(j == 0)
-        exit(0);
-    return 1;
-}   
+}

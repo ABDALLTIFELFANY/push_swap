@@ -6,19 +6,21 @@
 #    By: abelfany <abelfany@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/27 11:46:39 by abelfany          #+#    #+#              #
-#    Updated: 2022/12/05 17:09:15 by abelfany         ###   ########.fr        #
+#    Updated: 2022/12/09 17:16:13 by abelfany         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = huh.a
 HEADER = push_swap.h
 SRCS = push_swap.c \
-		newlst.c \
+		ft_lstnew.c \
 		check_case.c \
 		check_sort.c \
 		ft_split.c \
 		sortadd.c\
 		ft_strjoin.c \
+		instructions.c \
+		ft_lstdelone.c \
 		ft_strcmp.c
 
 OBJS = $(SRCS:.c=.o)
