@@ -1,7 +1,10 @@
-#include<stdio.h>
+#include "push_swap.h"
+t_nvr *new(t_nvr *val)
+{
+    
+}
 int main()
 {
-    char a = 55;
-    printf("%d", a);
-    printf("%d", a * -1);
+    t_nvr *ptr;
+    t_nvr *ptr;
 }

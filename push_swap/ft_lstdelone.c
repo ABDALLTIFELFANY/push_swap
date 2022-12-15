@@ -6,22 +6,22 @@
 /*   By: abelfany <abelfany@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 17:02:05 by abelfany          #+#    #+#             */
-/*   Updated: 2022/12/09 17:54:23 by abelfany         ###   ########.fr       */
+/*   Updated: 2022/12/10 11:29:36 by abelfany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+// #include "push_swap.h"
 
-void del(t_nvr *kjm)
-{
-    free(kjm);    
-}
-void	ft_lstdelone(t_nvr *lst)
-{
-	if (!lst)
-		return ;
-	del(lst -> stack);
-}
+// void del(t_nvr *kjm)
+// {
+//     free(kjm);    
+// }
+// void	ft_lstdelone(t_nvr *lst)
+// {
+// 	if (!lst)
+// 		return ;
+// 	del(lst -> stack);
+// }
 // int main()
 // {
 //     t_list *head = ft_lstne(ft_strdup("0"));

@@ -6,14 +6,14 @@
 /*   By: abelfany <abelfany@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 10:50:43 by abelfany          #+#    #+#             */
-/*   Updated: 2022/12/09 17:25:08 by abelfany         ###   ########.fr       */
+/*   Updated: 2022/12/15 21:31:42 by abelfany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # ifndef PUSH_SWAP_H
 #define PUSH_SWAP_H
 
-//# define my_sizeof(type) ((char *)(&type+1)-(char*)(&type));
+# define my_sizeof(type) ((char *)(&type+1)-(char*)(&type));
 
 typedef struct s_var
 {
@@ -28,6 +28,7 @@ typedef struct s_nvr
 {
     int stack;
     struct s_nvr *next;
+    struct s_nvr *prev;
 }   t_nvr;
 
 # include <stdio.h>
@@ -40,16 +41,32 @@ typedef struct s_nvr
 
 long long       ft_atoi(const char *str);
 char            **ft_split(char const *s, char c);
-t_nvr           *ft_lstnew(int val);
 int             ft_strcmp(char *s1, char *s2);
 void            push_swap(char **sot, int cnt);
 void            check_case(char **tar);
-void            sortadd(int *tab, int size);
-int            check_sort(t_nvr *t);
+int             check_sort(t_nvr *t);
 char            *ft_strjoin(int size, char **strs, char *sep);
 /*-----------------|\|-------------------*/
-void            sa(int *tab);
+t_nvr	        *ft_lstnew(int *val);
+int             ft_lstsize(t_nvr *lst);
 void            insert(t_nvr **root, int item);
-void            ft_lstdelone(t_nvr *lst);
+void            ft_lstadd_front(t_nvr **lst, t_nvr *new);
+/*-----------------|\|-------------------*/
+void            swap_a_b(int *a, int *b, char c);
+void            push_a_b(t_nvr **a, t_nvr **b, char c);
+void            rotate_a_b(t_nvr **a, char c);
+void            reverse_rotate_a_b(t_nvr **a, char c);
+void            swap_ss(int *a, int *b, int *x, int *y);
+void            rotate_rr(t_nvr **a, t_nvr **b);
+void	        reverse_rotate_rrr(t_nvr **a, t_nvr **b);
+/*-----------------algorithm-------------------*/
+void            find_longest(t_nvr *lst);
 
+
+/**----------------------tests----------------------*/
+        void test_instra(t_nvr *a, t_nvr *b);     
+/*                                                  */
+/*                                                  */
+/*                                                  */
+/*----------------------tests-----------------------*/
 #endif

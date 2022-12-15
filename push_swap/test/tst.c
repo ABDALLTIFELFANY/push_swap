@@ -31,3 +31,33 @@
 // {
 //     printf("%zu", ft_atoii(""));
 // }
+	// push_a_b(&a, &b, 'b');
+	// push_a_b(&a, &b, 'b');
+	// temp = a; 
+	// while(a)
+	// {
+	// 	printf("%d\n", a -> stack);
+	// 	a = a -> next;
+	// }
+	// a = temp;
+	// printf("-----\n");
+	// temp = b;
+	// while(b)
+	// {
+	// 	printf("%d\n", b -> stack);
+	// 	b = b -> next;
+	// }
+	// b = temp;
+	// printf("-----\n");
+	// sa_sb(&a -> stack, &a -> next -> stack, 'a');
+	// sa_sb(&b -> stack, &b -> next -> stack, 'b');
+	// while(a)
+	// {
+	// 	printf("%d\n", a -> stack);
+	// 	a = a -> next;
+	// }
+	// while(b)
+	// {
+	// 	printf("%d\n", b -> stack);
+	// 	b = b -> next;
+	// }
