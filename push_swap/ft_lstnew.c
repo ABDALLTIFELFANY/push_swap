@@ -6,24 +6,24 @@
 /*   By: abelfany <abelfany@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 11:43:23 by abelfany          #+#    #+#             */
-/*   Updated: 2022/12/15 21:23:12 by abelfany         ###   ########.fr       */
+/*   Updated: 2022/12/16 17:18:35 by abelfany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_lstsize(t_nvr *lst)
-{
-	int	a;
+// int	ft_lstsize(t_nvr *lst)
+// {
+// 	int	a;
 
-	a = 0;
-	while (lst != NULL)
-	{
-		lst = lst -> next;
-		a++;
-	}
-	return (a);
-}
+// 	a = 0;
+// 	while (lst != NULL)
+// 	{
+// 		lst = lst -> next;
+// 		a++;
+// 	}
+// 	return (a);
+// }
 
 t_nvr	*ft_lstnew(int *val)
 {

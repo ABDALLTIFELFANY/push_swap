@@ -6,7 +6,7 @@
 /*   By: abelfany <abelfany@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 10:50:43 by abelfany          #+#    #+#             */
-/*   Updated: 2022/12/15 21:31:42 by abelfany         ###   ########.fr       */
+/*   Updated: 2022/12/16 20:59:37 by abelfany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 
 # define my_sizeof(type) ((char *)(&type+1)-(char*)(&type));
 
+typedef struct s_nvr
+{
+    int stack;
+    struct s_nvr *next;
+}   t_nvr;
+
 typedef struct s_var
 {
     int a;
@@ -22,14 +28,17 @@ typedef struct s_var
 	int x;
 	char *str;
     int *tab;
+    /*---*/
+    int v;
+    int k;
+    int j;
+    int min;
+    int count;
+    t_nvr *sa;
+    t_nvr *sb;
+    t_nvr *sorts;
 }	t_var;
 
-typedef struct s_nvr
-{
-    int stack;
-    struct s_nvr *next;
-    struct s_nvr *prev;
-}   t_nvr;
 
 # include <stdio.h>
 # include <unistd.h>
