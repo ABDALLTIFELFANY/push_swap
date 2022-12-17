@@ -6,23 +6,30 @@
 /*   By: abelfany <abelfany@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 16:26:23 by abelfany          #+#    #+#             */
-/*   Updated: 2022/12/16 21:02:27 by abelfany         ###   ########.fr       */
+/*   Updated: 2022/12/17 21:54:34 by abelfany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// t_nvr *find_big_number(t_nvr *lst)
-// {
-//     int big = lst -> next -> stack;
-//     printf("%d", a);
-//     while(lst != NULL)
-//     {
-//         if(lst -> stack > big)
-//             big = 
-//     }
-// }
-
+void long_inc_subs(t_nvr **lst, t_nvr *add, t_nvr **all)
+{
+   t_nvr *reg;
+   int big; 
+   int head;
+ 
+   reg = *lst;
+    while((*lst) -> stack != add -> stack)
+        (*lst) = (*lst) -> next;
+    (*lst) -> next = NULL;
+    *lst = reg;
+    (*lst) = reg;
+    big = (*all) -> stack;
+    head = (*all) -> next -> stack;
+    while()
+    printf("%d\n", big);
+    printf("%d\n", head);
+}
 int	ft_lstsize(t_nvr *lst)
 {
 	int	a;
@@ -36,10 +43,10 @@ int	ft_lstsize(t_nvr *lst)
 	return (a);
 }
 
-t_nvr *all_sorts(t_nvr *ldb, int min, int a)
+t_nvr *all_sorts(t_nvr *ldb,int min, int a)
 {
-    insert(&ldb,min);
     insert(&ldb,a);
+    insert(&ldb,min);
     return ldb;
 }
 t_nvr   *link_lst(t_nvr **head)
@@ -52,10 +59,8 @@ t_nvr   *link_lst(t_nvr **head)
     while(last -> next != NULL)
         last = last -> next;
     last -> next = first;
-    printf("%d", last -> stack);
     return (last);
 }
-// }
 void    find_longest(t_nvr *lst)
 {
     t_var x;
@@ -67,12 +72,12 @@ void    find_longest(t_nvr *lst)
     x.j = 0;
     x.sa = lst;
     x.sorts = NULL;
-    while(x.j < x.v)
+    while(++x.j <= x.v)
     {
         x.min = x.sa -> stack;
-        x.k = x.j + 1;
+        x.k = 0;
         x.sb = x.sa -> next;
-        while(x.k < x.v)
+        while(++x.k <= x.v)
         {
             if(x.sb -> stack > x.min)
             {
@@ -80,18 +85,15 @@ void    find_longest(t_nvr *lst)
                 x.min = x.sb -> stack;
             }
             x.sb = x.sb -> next;
-            x.k++;
         }
-        //x.sorts = all_sorts(x.sorts,x.u -> stack,x.count);
-        printf("%d\n", x.count);
+        x.sorts = all_sorts(x.sorts,x.count);
         x.count = 1;
         x.sa = x.sa -> next;
-        x.j++;
     }
-    //find_big_number(x.sorts);
-    while(x.sorts)
-    {
-        printf("%d\n", x.sorts -> stack);
-        x.sorts = x.sorts -> next;
-    }
+    long_inc_subs(&lst, last, &x.sorts);
+    // while(x.sorts)
+    // {
+    //     printf("%d\n", x.sorts -> stack);
+    //     x.sorts = x.sorts -> next;
+    // }
 }
