@@ -6,11 +6,11 @@
 #    By: abelfany <abelfany@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/27 11:46:39 by abelfany          #+#    #+#              #
-#    Updated: 2022/12/15 20:26:57 by abelfany         ###   ########.fr        #
+#    Updated: 2022/12/21 19:00:35 by abelfany         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = huh.a
+NAME = push_swap
 HEADER = push_swap.h
 SRCS = push_swap.c \
 		ft_lstnew.c \
@@ -21,18 +21,25 @@ SRCS = push_swap.c \
 		instructions.c \
 		instructionsII.c \
 		longest_sort.c \
-		sort_stack.c \
+		sort_stacks.c \
+		sort_a_b.c \
 		ft_strcmp.c
 
 OBJS = $(SRCS:.c=.o)
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g
 RM = rm -rf
 AR = @ar -rc
 
 all: $(NAME)
 
+		@echo "██████╗░██╗░░░██╗░██████╗██╗░░██╗░██████╗░██╗░░░░░░░██╗░█████╗░██████╗░"
+		@echo "██╔══██╗██║░░░██║██╔════╝██║░░██║██╔════╝░██║░░██╗░░██║██╔══██╗██╔══██╗"
+		@echo "██████╔╝██║░░░██║╚█████╗░███████║╚█████╗░░╚██╗████╗██╔╝███████║██████╔╝"
+		@echo "██╔═══╝░██║░░░██║░╚═══██╗██╔══██║░╚═══██╗░░████╔═████║░██╔══██║██╔═══╝░"
+		@echo "██║░░░░░╚██████╔╝██████╔╝██║░░██║██████╔╝░░╚██╔╝░╚██╔╝░██║░░██║██║░░░░░"
+		@echo "╚═╝░░░░░░╚═════╝░╚═════╝░╚═╝░░╚═╝╚═════╝░░░░╚═╝░░░╚═╝░░╚═╝░░╚═╝╚═╝░░░░░"
 $(NAME):$(OBJS)
-	$(AR) $(NAME) $(OBJS)
+	gcc $(CFLAGS) $(OBJS) -o $(NAME)
 
 %.o : %.c $(HEADER)
 	cc $(CFLAGS) -c $< -I $(HEADER)

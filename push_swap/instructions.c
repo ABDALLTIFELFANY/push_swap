@@ -6,7 +6,7 @@
 /*   By: abelfany <abelfany@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 16:19:33 by abelfany          #+#    #+#             */
-/*   Updated: 2022/12/15 20:27:57 by abelfany         ###   ########.fr       */
+/*   Updated: 2022/12/18 15:30:27 by abelfany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void	reverse_rotate_a_b(t_nvr **a, char c) // --reverse_rotate a - reverse_rotat
 	tmp -> next = NULL;
 	ft_lstadd_front(&*a, ft_lstnew(&k));
 	if (c == 'a')
-		write(1, "rra\n", 3);
+		write(1, "rra\n", 4);
 	if (c == 'b')
-		write(1, "rrb\n", 3);
+		write(1, "rrb\n", 4);
 }

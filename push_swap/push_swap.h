@@ -6,7 +6,7 @@
 /*   By: abelfany <abelfany@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 10:50:43 by abelfany          #+#    #+#             */
-/*   Updated: 2022/12/16 20:59:37 by abelfany         ###   ########.fr       */
+/*   Updated: 2022/12/21 19:17:10 by abelfany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,26 @@ typedef struct s_var
     int a;
     int b;
 	int x;
+	int jl;
 	char *str;
     int *tab;
-    /*---*/
+    t_nvr *indexes;
+    /*find_longest*/
     int v;
     int k;
     int j;
     int min;
     int count;
+    int lis;
     t_nvr *sa;
     t_nvr *sb;
     t_nvr *sorts;
+    t_nvr *last;
+    /*long_inc_subs*/
+    t_nvr *reg;
+    t_nvr *node;
+    int big; 
+    int head;  
 }	t_var;
 
 
@@ -69,7 +78,14 @@ void            swap_ss(int *a, int *b, int *x, int *y);
 void            rotate_rr(t_nvr **a, t_nvr **b);
 void	        reverse_rotate_rrr(t_nvr **a, t_nvr **b);
 /*-----------------algorithm-------------------*/
-void            find_longest(t_nvr *lst);
+int             find_longest(t_nvr *lst);
+t_nvr           *link_lst(t_nvr **head);
+t_nvr           *sort_stacks(t_nvr **sta, t_nvr **stb, t_nvr *lis);
+//void          ft_ft(t_nvr **sta, t_nvr **stb, t_nvr *index, int kk);
+void            check_and_rotate(t_nvr **sta, t_nvr **stb, int kk,char c);
+t_nvr           *find_who_p_b(t_nvr *sta, int kk);
+void            find_it(t_nvr **tab , int kk, int size);
+void            sort_a(t_nvr **sta, t_nvr **stb,int kk);
 
 
 /**----------------------tests----------------------*/
