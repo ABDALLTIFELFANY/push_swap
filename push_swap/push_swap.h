@@ -6,7 +6,7 @@
 /*   By: abelfany <abelfany@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 10:50:43 by abelfany          #+#    #+#             */
-/*   Updated: 2022/12/21 19:17:10 by abelfany         ###   ########.fr       */
+/*   Updated: 2022/12/23 19:35:06 by abelfany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,14 +78,20 @@ void            swap_ss(int *a, int *b, int *x, int *y);
 void            rotate_rr(t_nvr **a, t_nvr **b);
 void	        reverse_rotate_rrr(t_nvr **a, t_nvr **b);
 /*-----------------algorithm-------------------*/
-int             find_longest(t_nvr *lst);
+int             find_longest(t_nvr *lst, int *lenght);
 t_nvr           *link_lst(t_nvr **head);
-t_nvr           *sort_stacks(t_nvr **sta, t_nvr **stb, t_nvr *lis);
+int             sort_stacks(t_nvr **sta, t_nvr **stb, t_nvr **lis);
 //void          ft_ft(t_nvr **sta, t_nvr **stb, t_nvr *index, int kk);
 void            check_and_rotate(t_nvr **sta, t_nvr **stb, int kk,char c);
 t_nvr           *find_who_p_b(t_nvr *sta, int kk);
 void            find_it(t_nvr **tab , int kk, int size);
 void            sort_a(t_nvr **sta, t_nvr **stb,int kk);
+t_nvr           *count_mv(t_nvr *sta, t_nvr *stb);
+int             half(t_nvr *sta, int kk);
+t_nvr	        *ft_lstlast(t_nvr *lst);
+int             find_big_one(t_nvr *arr);
+int             find_small(t_nvr *arr);
+void    return_to_sta(t_nvr **sta, t_nvr **stb, int elem);
 
 
 /**----------------------tests----------------------*/

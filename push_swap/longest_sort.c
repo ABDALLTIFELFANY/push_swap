@@ -6,13 +6,13 @@
 /*   By: abelfany <abelfany@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 16:26:23 by abelfany          #+#    #+#             */
-/*   Updated: 2022/12/20 16:05:01 by abelfany         ###   ########.fr       */
+/*   Updated: 2022/12/23 18:47:14 by abelfany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int long_inc_subs(t_nvr **lst, t_nvr *add, t_nvr **all)
+int long_inc_subs(t_nvr **lst, t_nvr *add, t_nvr **all, int *big)
 {
     t_var x;
 
@@ -21,16 +21,16 @@ int long_inc_subs(t_nvr **lst, t_nvr *add, t_nvr **all)
         (*lst) = (*lst) -> next;
     (*lst) -> next = NULL;
     *lst = x.reg;
-    x.big = (*all) -> stack;
+    *big = (*all) -> stack;
     x.head = (*all) -> next -> stack;
     while ((*all) -> next -> next)
     {
         x.node = (*all);
         while (x.node -> next -> next)
         {
-            if (x.node -> next -> next -> stack > x.big)
+            if (x.node -> next -> next -> stack > *big)
             {
-                x.big = x.node -> next -> next -> stack;
+                *big = x.node -> next -> next -> stack;
                 x.head = x.node -> next -> next -> next -> stack;
             }
             x.node = x.node -> next -> next;
@@ -71,7 +71,7 @@ t_nvr   *link_lst(t_nvr **head)
     last -> next = first;
     return (last);
 }
-int     find_longest(t_nvr *lst)
+int     find_longest(t_nvr *lst, int *lenght)
 {
     t_var x;
     
@@ -99,6 +99,7 @@ int     find_longest(t_nvr *lst)
         x.count = 1;
         x.sa = x.sa -> next;
     }
-    x.jl = long_inc_subs(&lst, x.last, &x.sorts);
+    x.jl = long_inc_subs(&lst, x.last, &x.sorts,&x.count);
+    *lenght = x.count;
     return x.jl;
 }

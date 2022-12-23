@@ -6,7 +6,7 @@
 #    By: abelfany <abelfany@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/27 11:46:39 by abelfany          #+#    #+#              #
-#    Updated: 2022/12/21 19:00:35 by abelfany         ###   ########.fr        #
+#    Updated: 2022/12/23 19:29:03 by abelfany         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,8 @@ SRCS = push_swap.c \
 		longest_sort.c \
 		sort_stacks.c \
 		sort_a_b.c \
+		extantion.c \
+		return_to_sta.c \
 		ft_strcmp.c
 
 OBJS = $(SRCS:.c=.o)
