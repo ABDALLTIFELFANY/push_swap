@@ -6,7 +6,7 @@
 /*   By: abelfany <abelfany@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 10:46:54 by abelfany          #+#    #+#             */
-/*   Updated: 2022/12/23 19:36:49 by abelfany         ###   ########.fr       */
+/*   Updated: 2022/12/24 17:55:19 by abelfany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,21 @@ int find_best_mov(t_nvr **all)
     }
     return x.head;
 }
+void check_a(t_nvr **sta, int kk, char c)
+{
+   int jbl;
+    
+    jbl = hi(*sta,kk);
+    while(1)
+    {
+        if((*sta) -> stack == kk)
+            break;
+        if(jbl == 1)
+           rotate_a_b(&*sta, c);
+        if(jbl == 0)
+            reverse_rotate_a_b(&*sta, c);
+    }
+}
 void push_swap(char **sot, int cnt)
 {
 	t_var	x;
@@ -99,23 +114,22 @@ void push_swap(char **sot, int cnt)
 		insert(&a,ft_atoi(sot[x.a]));
 	check_sort(a);
 	x.lis = find_longest(a,&lenght);
+	//printf("%d\n", x.lis);
 	indexs = find_who_p_b(a,x.lis);
-	x.lis = sort_stacks(&a,&b,&indexs);
-	//check_a(&a,find_small(a),'a');
-	indexs = count_mv(a,b);
-	x.lis = find_best_mov(&indexs);
-	return_to_sta(&a,&b,x.lis);
-	while(a)
-    {
-        printf("%d\n", a -> stack);
-        a = a -> next;
-    }
-	printf("\n----------\n");
-	while(b)
-    {
-        printf("{%d}\n", b -> stack);
-        b = b -> next;
-    }
+	sort_stacks(&a,&b,&indexs);
+	return_to_sta(&a,&b);
+	check_a(&a,find_small(a),'a');
+// 	while(a)
+//     {
+//         printf("-> %d\n", a -> stack);
+//         a = a -> next;
+//    }
+// 	printf("\n----------\n");
+// 	while(b)
+//     {
+//         printf("{%d}\n", b -> stack);
+//         b = b -> next;
+//     }
 }
 int main(int ac, char **av)
 {

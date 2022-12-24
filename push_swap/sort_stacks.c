@@ -6,7 +6,7 @@
 /*   By: abelfany <abelfany@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 20:24:33 by abelfany          #+#    #+#             */
-/*   Updated: 2022/12/22 18:27:59 by abelfany         ###   ########.fr       */
+/*   Updated: 2022/12/24 18:02:25 by abelfany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int half(t_nvr *sta, int kk)
     int size;
     t_nvr *head;
     int a = 0;
-    //kk = 0;
     head = sta;
     size = ft_lstsize(sta);
     while(a < size)
@@ -49,14 +48,16 @@ void check_and_rotate(t_nvr **sta, t_nvr **stb, int kk, char c)
     }
     push_a_b(&*sta, &*stb, c);
 }
-int sort_stacks(t_nvr **sta, t_nvr **stb, t_nvr **lis)
+void sort_stacks(t_nvr **sta, t_nvr **stb, t_nvr **lis)
 {
-    // int lenght;
+    int lng = 0;
+    int lenght;
     t_nvr *head;
     t_nvr *head1;
     int kk;
-    int lng = 0;
     
+    head = *sta;
+    kk = 0;
     head = *sta;
     while(head)
     {
@@ -73,9 +74,14 @@ int sort_stacks(t_nvr **sta, t_nvr **stb, t_nvr **lis)
         if(kk == 0)
         {
             check_and_rotate(&*sta,&*stb,head -> stack,'a');
-            // lng = find_longest(*sta,&lenght);
-            // if(ft_lstsize((*lis)) < lenght)
-            //     (*lis) = find_who_p_b(*sta,lng);
+            swap_a_b(&(*sta) -> stack, &(*sta) -> next -> stack,'j');
+            lng = find_longest(*sta,&lenght);
+                if(ft_lstsize((*lis)) < lenght)
+                    write(1, "sa\n", 1);
+                else
+                    swap_a_b(&(*sta) -> stack, &(*sta) -> next -> stack,'j');
+                if(ft_lstsize((*lis)) <= lenght)
+            (*lis) = find_who_p_b(*sta,lng);
             head = *sta;
         }
         else
@@ -83,7 +89,6 @@ int sort_stacks(t_nvr **sta, t_nvr **stb, t_nvr **lis)
         
         kk = 0;
     }
-    return lng;
 }
 void find_it(t_nvr **tab , int kk, int size)
 {

@@ -6,7 +6,7 @@
 /*   By: abelfany <abelfany@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 19:00:51 by abelfany          #+#    #+#             */
-/*   Updated: 2022/12/23 18:57:40 by abelfany         ###   ########.fr       */
+/*   Updated: 2022/12/24 11:43:32 by abelfany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ t_nvr *count_mv(t_nvr *sta, t_nvr *stb)
     t_nvr *head1;
     head = sta;
     head1 = stb;
-//    int size = ft_lstsize(head);
     val = count_in_sta(head,stb, head1 -> stack);
     save = moves_place(save,val,head1 -> stack);
     head1 = head1 -> next;
@@ -88,16 +87,5 @@ t_nvr *count_mv(t_nvr *sta, t_nvr *stb)
         save = moves_place(save,val,head1 -> stack);
         head1 = head1 -> next;
     }
-    // while(sta)
-    // {
-    //     printf("%d\n", sta -> stack);
-    //     sta = sta -> next;
-    // }
-    // printf("========\n");
-    // while(save)
-    // {
-    //     printf("%d\n", save -> stack);
-    //     save = save -> next;
-    // }
     return save;
 }

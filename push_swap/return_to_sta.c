@@ -6,7 +6,7 @@
 /*   By: abelfany <abelfany@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 19:28:39 by abelfany          #+#    #+#             */
-/*   Updated: 2022/12/23 21:27:44 by abelfany         ###   ########.fr       */
+/*   Updated: 2022/12/24 18:26:54 by abelfany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,13 +63,12 @@ void final_push(t_nvr **sta, t_nvr **stb, int kk, char c)
         if(jbl == 0)
             reverse_rotate_a_b(&*sta, c);
     }
-    push_a_b(&*sta, &*stb, c);
+    push_a_b(&*stb, &*sta, 'b');
 }
 int count_in(t_nvr *taa, int elem)
 {
     int a = 0;
     t_nvr *ss = taa;
-    taa = ss;
     int min = find_small(taa);
     int big = find_big_one(taa);
     t_nvr *reg = taa;
@@ -77,26 +76,49 @@ int count_in(t_nvr *taa, int elem)
     t_nvr *last = link_lst(&taa);
     while(a < size)
     {
-        if(taa -> stack < elem && taa -> next -> stack > elem)
-            return (taa -> next -> stack);
-        if(taa -> stack == min && elem < min)
+        if(ss -> stack < elem && ss -> next -> stack > elem)
+        {
+            a = ss -> next -> stack;
             break;
-        if(taa -> stack == big && elem > big)
+        }
+        if(elem > big)
+        {
+            a = big;
             break;
+        }
+        if(elem < min)
+        {
+            a = min;
+            break;
+        }
         a++;
-        taa = taa -> next;
+        ss = ss -> next;
     }
-    taa = reg;
     while (taa -> stack != last -> stack)
         taa = taa -> next;
     taa -> next = NULL;
     taa = reg;
-    return 0;
+    return a;
 }
-void    return_to_sta(t_nvr **sta, t_nvr **stb, int elem)
+void    return_to_sta(t_nvr **sta, t_nvr **stb)
 {
-    hello(&*stb,elem,'p');
-    int place = count_in(*sta,elem);
-    final_push(&*stb,&*sta,place,'p');
-    
+    t_nvr   *indexs;
+    int     elem;
+    int     a;
+
+    a = 0;
+    while(*stb)
+    {
+        if((*stb) -> next == NULL)
+            elem = (*stb) -> stack;
+        else
+        {
+            indexs = count_mv(*sta,*stb);
+            elem = find_best_mov(&indexs);
+        }
+        hello(&*stb,elem,'b');
+        int place = count_in(*sta,elem);
+        final_push(&*sta,&*stb,place,'a');
+        a++;
+    }
 }

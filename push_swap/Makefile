@@ -6,7 +6,7 @@
 #    By: abelfany <abelfany@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/27 11:46:39 by abelfany          #+#    #+#              #
-#    Updated: 2022/12/23 19:29:03 by abelfany         ###   ########.fr        #
+#    Updated: 2022/12/24 12:46:22 by abelfany         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ SRCS = push_swap.c \
 		ft_strcmp.c
 
 OBJS = $(SRCS:.c=.o)
-CFLAGS = -Wall -Werror -Wextra -g
+CFLAGS = -Wall -Werror -Wextra
 RM = rm -rf
 AR = @ar -rc
 
