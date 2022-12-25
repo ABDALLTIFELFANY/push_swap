@@ -1,29 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_sort.c                                       :+:      :+:    :+:   */
+/*   get_line.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelfany <abelfany@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/05 12:40:12 by abelfany          #+#    #+#             */
-/*   Updated: 2022/12/09 16:18:22 by abelfany         ###   ########.fr       */
+/*   Created: 2022/12/25 18:12:47 by abelfany          #+#    #+#             */
+/*   Updated: 2022/12/25 22:15:30 by abelfany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
+
 #include "push_swap.h"
 
-int check_sort(t_nvr *t)
-{
-    int j;
+# include<unistd.h>
+# include<stdio.h>
+# include<stdlib.h>
+# include<fcntl.h>
 
-    j = 0;
-    while(t != NULL && t -> next)
-    {  
-        if((t -> stack) > (t -> next -> stack))
-            j = 1;
-        t = t -> next;
-    }
-    if(j == 0)
-        exit(0);
-    return 1;
-}   
+typedef struct s_get
+{
+	char	*buff;
+	char	*hold;
+	char	*s2;
+	char	*s1;
+	int		a;
+}	t_get;
+
+char		*get_next_line(int fd);
+char		*ft_join(char *s1, char *s2);
+size_t		ft_strlen(const char *str);
+char		*ft_save(char *str);
+char	    **ft_split(char const *s, char c);
+char		*check(char *str);
+
+
+#endif

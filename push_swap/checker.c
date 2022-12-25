@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelfany <abelfany@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/26 10:46:54 by abelfany          #+#    #+#             */
-/*   Updated: 2022/12/25 17:42:07 by abelfany         ###   ########.fr       */
+/*   Created: 2022/12/25 18:08:35 by abelfany          #+#    #+#             */
+/*   Updated: 2022/12/25 22:25:24 by abelfany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "get_line.h"
+// #include "push_swap.h"
 
 int	ft_lenstrs(char **strs)
 {
@@ -22,14 +23,14 @@ int	ft_lenstrs(char **strs)
 	return (x);
 }
 
-int	ft_strlen(char *str)
+int	ft_strcmp(char *s1, char *s2)
 {
-	int	x;
+	int	a;
 
-	x = 0;
-	while (str[x])
-		x++;
-	return (x);
+	a = 0;
+	while (s1[a] && s1[a] == s2[a])
+		a++;
+	return (s1[a] - s2[a]);
 }
 
 long long	ft_atoi(const char *str)
@@ -60,35 +61,35 @@ long long	ft_atoi(const char *str)
 	}
 	return (res * nb);
 }
+// int	ft_strlen(char *str)
+// {
+// 	int	x;
 
-void	push_swap(char **sot, int cnt)
+// 	x = 0;
+// 	while (str[x])
+// 		x++;
+// 	return (x);
+// }
+void    checker(char **av, int cnt)
 {
-	t_var	x;
+    t_var	x;
 	t_nvr	*a;
-	int		lenght;
 	t_nvr	*b;
-	t_nvr	*indexs;
 
 	x.a = -1;
 	x.b = 0;
 	x.x = 0;
 	a = NULL;
 	b = NULL;
-	x.str = ft_strjoin(cnt, sot, " ");
-	sot = ft_split(x.str, ' ');
-	check_case(sot);
-	while (++x.a < ft_lenstrs(sot))
-		insert(&a, ft_atoi(sot[x.a]));
-	check_sort(a);
-	x.lis = find_longest(a, &lenght, ft_lstsize(a));
-	indexs = find_who_p_b(a, x.lis, ft_lstsize(a));
-	sort_stacks(&a, &b, &indexs);
-	return_to_sta(&a, &b);
-	check_a(&a, find_small(a), 'a');
+	x.str = ft_strjoin(cnt, av, " ");
+	av = ft_split(x.str, ' ');
+	check_case(av);
+	while (++x.a < ft_lenstrs(av))
+		insert(&a, ft_atoi("123"));
+	printf("%d", a -> stack);
 }
-
-int	main(int ac, char **av)
+int main(int ac, char **av)
 {
-	if (ac >= 2)
-		push_swap(av, ac);
+    if(ac >= 2)
+        checker(av,ac);
 }

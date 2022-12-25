@@ -1,34 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   extantion_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelfany <abelfany@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/27 11:43:23 by abelfany          #+#    #+#             */
-/*   Updated: 2022/12/25 17:01:47 by abelfany         ###   ########.fr       */
+/*   Created: 2022/12/25 22:12:12 by abelfany          #+#    #+#             */
+/*   Updated: 2022/12/25 22:13:07 by abelfany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-void	d_link(t_nvr **stack, t_nvr *last, t_nvr *reg)
-{
-	while ((*stack)-> stack != last-> stack)
-		(*stack) = (*stack)-> next;
-	(*stack)-> next = NULL;
-	(*stack) = reg;
-}
-
-int	ft_strcmp(char *s1, char *s2)
-{
-	int	a;
-
-	a = 0;
-	while (s1[a] && s1[a] == s2[a])
-		a++;
-	return (s1[a] - s2[a]);
-}
+#include "get_line.h"
 
 t_nvr	*ft_lstnew(int *val)
 {
