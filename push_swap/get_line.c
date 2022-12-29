@@ -6,12 +6,11 @@
 /*   By: abelfany <abelfany@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 18:12:19 by abelfany          #+#    #+#             */
-/*   Updated: 2022/12/25 22:08:21 by abelfany         ###   ########.fr       */
+/*   Updated: 2022/12/26 10:56:45 by abelfany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"get_line.h"
-//#include"push_swap.h"
 
 char	*ft_strdup(const char *s1)
 {

@@ -6,12 +6,11 @@
 /*   By: abelfany <abelfany@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 18:08:35 by abelfany          #+#    #+#             */
-/*   Updated: 2022/12/25 22:25:24 by abelfany         ###   ########.fr       */
+/*   Updated: 2022/12/26 11:34:14 by abelfany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_line.h"
-// #include "push_swap.h"
 
 int	ft_lenstrs(char **strs)
 {
@@ -61,18 +60,10 @@ long long	ft_atoi(const char *str)
 	}
 	return (res * nb);
 }
-// int	ft_strlen(char *str)
-// {
-// 	int	x;
 
-// 	x = 0;
-// 	while (str[x])
-// 		x++;
-// 	return (x);
-// }
-void    checker(char **av, int cnt)
+void	checker(char **av, int cnt)
 {
-    t_var	x;
+	t_var	x;
 	t_nvr	*a;
 	t_nvr	*b;
 
@@ -85,11 +76,12 @@ void    checker(char **av, int cnt)
 	av = ft_split(x.str, ' ');
 	check_case(av);
 	while (++x.a < ft_lenstrs(av))
-		insert(&a, ft_atoi("123"));
+		insert(&a, get_next_line(1));
 	printf("%d", a -> stack);
 }
-int main(int ac, char **av)
+
+int	main(int ac, char **av)
 {
-    if(ac >= 2)
-        checker(av,ac);
+	if (ac >= 2)
+		checker(av, ac);
 }

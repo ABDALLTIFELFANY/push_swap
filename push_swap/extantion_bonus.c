@@ -6,31 +6,31 @@
 /*   By: abelfany <abelfany@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 22:12:12 by abelfany          #+#    #+#             */
-/*   Updated: 2022/12/25 22:13:07 by abelfany         ###   ########.fr       */
+/*   Updated: 2022/12/26 10:58:52 by abelfany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_line.h"
 
-t_nvr	*ft_lstnew(int *val)
+t_list	*ft_lstnew(char *val)
 {
-	t_nvr	*hel;
+	t_list	*hel;
 
 	hel = malloc(sizeof(t_nvr));
 	if (!hel)
 		return (0);
-	hel -> stack = *val;
+	hel -> content = *val;
 	hel -> next = NULL;
 	return (hel);
 }
 
-void	insert(t_nvr **root, int item)
+void	new_node(t_list **root, char *str)
 {
-	t_nvr	*temp;
-	t_nvr	*ptr;
+	t_list	*temp;
+	t_list	*ptr;
 
-	temp = malloc(sizeof(t_nvr));
-	temp -> stack = item;
+	temp = malloc(sizeof(t_list));
+	temp -> content = str;
 	temp -> next = NULL;
 	if (*root == NULL)
 		*root = temp;

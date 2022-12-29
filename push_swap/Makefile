@@ -6,7 +6,7 @@
 #    By: abelfany <abelfany@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/27 11:46:39 by abelfany          #+#    #+#              #
-#    Updated: 2022/12/25 22:26:16 by abelfany         ###   ########.fr        #
+#    Updated: 2022/12/27 17:14:50 by abelfany         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ SRCS = push_swap.c \
 		ft_lstnew.c \
 		check_case.c \
 		ft_split.c \
+		lis.c \
 		ft_strjoin.c \
 		instructions.c \
 		instructionsII.c \
@@ -37,7 +38,7 @@ B_SRCS = checker.c \
 
 OBJS = $(SRCS:.c=.o)
 B_OBJS = $(B_SRCS:.c=.o)
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra  -g
 RM = rm -rf
 AR = @ar -rc
 

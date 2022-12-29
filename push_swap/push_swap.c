@@ -6,7 +6,7 @@
 /*   By: abelfany <abelfany@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 10:46:54 by abelfany          #+#    #+#             */
-/*   Updated: 2022/12/25 17:42:07 by abelfany         ###   ########.fr       */
+/*   Updated: 2022/12/29 15:21:11 by abelfany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ void	push_swap(char **sot, int cnt)
 {
 	t_var	x;
 	t_nvr	*a;
-	int		lenght;
 	t_nvr	*b;
 	t_nvr	*indexs;
 
@@ -80,8 +79,7 @@ void	push_swap(char **sot, int cnt)
 	while (++x.a < ft_lenstrs(sot))
 		insert(&a, ft_atoi(sot[x.a]));
 	check_sort(a);
-	x.lis = find_longest(a, &lenght, ft_lstsize(a));
-	indexs = find_who_p_b(a, x.lis, ft_lstsize(a));
+	indexs = ft_lis(a, ft_lstsize(a));
 	sort_stacks(&a, &b, &indexs);
 	return_to_sta(&a, &b);
 	check_a(&a, find_small(a), 'a');

@@ -6,7 +6,7 @@
 /*   By: abelfany <abelfany@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 10:50:43 by abelfany          #+#    #+#             */
-/*   Updated: 2022/12/25 18:10:36 by abelfany         ###   ########.fr       */
+/*   Updated: 2022/12/28 13:45:00 by abelfany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@
 typedef struct s_nvr
 {
 	int				stack;
+	int				mov_a;
+	int				mov_b;
+	int				mark;
 	struct s_nvr	*next;
 }	t_nvr;
 
@@ -87,6 +90,7 @@ typedef struct s_var2
 }	t_var2;
 
 long long		ft_atoi(const char *str);
+t_nvr			*final_mov(t_nvr **sta, t_nvr **stb);
 char			**ft_split(char const *s, char c);
 int				ft_strcmp(char *s1, char *s2);
 void			push_swap(char **sot, int cnt);
@@ -113,14 +117,14 @@ void			find_it(t_nvr **tab, int kk, int size);
 t_nvr			*count_mv(t_nvr *sta, t_nvr *stb);
 int				half(t_nvr *sta, int kk);
 t_nvr			*ft_lstlast(t_nvr *lst);
+t_nvr 			*ft_lis(t_nvr *lis, int size);
 int				find_big_one(t_nvr *arr);
 int				find_small(t_nvr *arr);
 int				half(t_nvr *sta, int kk);
 void			return_to_sta(t_nvr **sta, t_nvr **stb);
 void			d_link(t_nvr **stack, t_nvr *last, t_nvr *reg);
-int				find_best_mov(t_nvr **all);
+t_nvr			*find_best_mov(t_nvr *all);
 int				hi(t_nvr *sta, int kk);
-int				find_best_mov(t_nvr **all);
 void			check_a(t_nvr **sta, int kk, char c);
 
 #endif
