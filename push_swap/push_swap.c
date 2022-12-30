@@ -6,7 +6,7 @@
 /*   By: abelfany <abelfany@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 10:46:54 by abelfany          #+#    #+#             */
-/*   Updated: 2022/12/29 15:21:11 by abelfany         ###   ########.fr       */
+/*   Updated: 2022/12/30 16:28:50 by abelfany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	push_swap(char **sot, int cnt)
 	while (++x.a < ft_lenstrs(sot))
 		insert(&a, ft_atoi(sot[x.a]));
 	check_sort(a);
-	indexs = ft_lis(a, ft_lstsize(a));
+	indexs = ft_lis(a, ft_lstsize(a), find_small(a), link_lst(&a));
 	sort_stacks(&a, &b, &indexs);
 	return_to_sta(&a, &b);
 	check_a(&a, find_small(a), 'a');
@@ -89,4 +89,5 @@ int	main(int ac, char **av)
 {
 	if (ac >= 2)
 		push_swap(av, ac);
+	//while(1){};
 }

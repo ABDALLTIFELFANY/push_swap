@@ -6,11 +6,27 @@
 /*   By: abelfany <abelfany@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 17:24:38 by abelfany          #+#    #+#             */
-/*   Updated: 2022/12/25 14:20:46 by abelfany         ###   ########.fr       */
+/*   Updated: 2022/12/30 13:04:57 by abelfany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	find_big(int *arr, int size)
+{
+	int	big;
+	int	x;
+
+	big = arr[0];
+	x = 1;
+	while (x < size)
+	{
+		if (arr[x] > big)
+			big = arr[x];
+		x++;
+	}
+	return (big);
+}
 
 void	sw_ss(int *a, int *b, int *x, int *y)
 {

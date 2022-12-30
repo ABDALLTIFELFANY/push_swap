@@ -6,99 +6,96 @@
 /*   By: abelfany <abelfany@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 16:26:23 by abelfany          #+#    #+#             */
-/*   Updated: 2022/12/26 16:18:43 by abelfany         ###   ########.fr       */
+/*   Updated: 2022/12/30 13:05:49 by abelfany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	long_inc_subs(t_nvr **lst, t_nvr *add, t_nvr **all, int *big)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	t_var	x;
+	unsigned char	*ptr;
 
-	x.reg = *lst;
-	while ((*lst)-> stack != add-> stack)
-		(*lst) = (*lst)-> next;
-	(*lst)-> next = NULL;
-	*lst = x.reg;
-	*big = (*all)-> stack;
-	x.head = (*all)-> next -> stack;
-	while ((*all)-> next -> next)
-	{
-		x.node = (*all);
-		while (x.node-> next -> next)
-		{
-			if (x.node-> next -> next -> stack > *big)
-			{
-				*big = x.node-> next -> next -> stack;
-				x.head = x.node-> next -> next -> next -> stack;
-			}
-			x.node = x.node-> next -> next;
-		}
-		(*all) = (*all)-> next -> next;
-	}
-	return (x.head);
+	ptr = (unsigned char *) b;
+	while (len--)
+		*ptr++ = (unsigned char) c;
+	return (b);
 }
 
-int	ft_lstsize(t_nvr *lst)
+void	fil_list(t_nvr **lst, int inx)
 {
-	int	a;
+	insert(lst, inx);
+}
+
+t_nvr	*longest_inc(int *tab, int *arr, int lis, t_nvr *head)
+{
+	t_var2	nb;
+
+	nb.j = 0;
+	nb.a = -1;
+	nb.list = NULL;
+	while (tab[nb.j] != lis)
+		nb.j++;
+	nb.art = malloc(sizeof(int) * lis);
+	while (++nb.a < lis)
+	{
+		nb.art[nb.a] = nb.j;
+		nb.j = arr[nb.j];
+	}
+	nb.j = 0;
+	while (--nb.a > -1)
+	{
+		while (nb.j < nb.art[nb.a])
+		{
+			head = head-> next;
+			nb.j++;
+		}
+		fil_list(&nb.list, head -> stack);
+	}
+	return (nb.list);
+}
+
+void	ft_lis_utils(int *arr, int *tab, t_nvr *lis, int size)
+{
+	int		j;
+	int		i;
+	t_nvr	*head;
+	t_nvr	*jbl;
+
+	i = -1;
+	head = lis;
+	while (++i < size)
+	{
+		j = -1;
+		while (++j < i)
+		{
+			if (jbl -> stack < lis -> stack && tab[j] + 1 >= tab[i])
+			{
+				tab[i] = tab[j] + 1;
+				arr[i] = j;
+			}
+			jbl = jbl -> next;
+		}
+		lis = lis -> next;
+		jbl = head;
+	}
+}
+
+t_nvr	*ft_lis(t_nvr *lng, int size, int min, t_nvr *last)
+{
+	t_lis	lis;
+	t_nvr	*reg;
+	t_nvr	*head;
+	int		a;
 
 	a = 0;
-	while (lst != NULL)
-	{
-		lst = lst-> next;
-		a++;
-	}
-	return (a);
-}
-
-t_nvr	*all_sorts(t_nvr *ldb, int min, int a)
-{
-	ldb = NULL;
-	insert(&ldb, a);
-	insert(&ldb, min);
-	return (ldb);
-}
-
-t_nvr	*link_lst(t_nvr **head)
-{
-	t_nvr	*first;
-	t_nvr	*last;
-
-	first = *head;
-	last = *head;
-	while (last-> next != NULL)
-		last = last-> next;
-	last -> next = first;
-	return (last);
-}
-
-int	find_longest(t_nvr *lst, int *lenght, int size)
-{
-	t_var	x;
-
-	x.last = link_lst(&lst);
-	x.count = 1;
-	x.j = 0;
-	while (++x.j <= size)
-	{
-		x.min = lst-> stack;
-		x.k = 0;
-		x.sb = lst-> next;
-		while (++x.k <= size)
-		{
-			if (x.sb -> stack > x.min)
-			{
-				x.count++;
-				x.min = x.sb-> stack;
-			}
-			x.sb = x.sb-> next;
-		}
-		x.sorts = all_sorts(x.sorts, lst-> stack, x.count);
-		x.count = 1;
-		lst = lst-> next;
-	}
-	*lenght = x.count;
-	return (long_inc_subs(&lst, x.last, &x.sorts, &x.count));
+	lis.tab = malloc(sizeof(int) * size);
+	lis.arr = malloc(sizeof(int) * size);
+	reg = lng;
+	while (lng -> stack != min)
+		lng = lng -> next;
+	head = lng;
+	ft_lis_utils(lis.arr, lis.tab, lng, size);
+	lis.indxs = longest_inc(lis.tab, lis.arr, find_big(lis.tab, size), head);
+	return (d_link(&lng, last, reg), lis.indxs);
 }

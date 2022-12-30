@@ -6,7 +6,7 @@
 #    By: abelfany <abelfany@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/27 11:46:39 by abelfany          #+#    #+#              #
-#    Updated: 2022/12/27 17:14:50 by abelfany         ###   ########.fr        #
+#    Updated: 2022/12/29 16:35:49 by abelfany         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,6 @@ SRCS = push_swap.c \
 		ft_lstnew.c \
 		check_case.c \
 		ft_split.c \
-		lis.c \
 		ft_strjoin.c \
 		instructions.c \
 		instructionsII.c \
@@ -25,7 +24,8 @@ SRCS = push_swap.c \
 		sort_a_b.c \
 		extantion.c \
 		find_best_mv.c \
-		return_to_sta.c
+		return_to_sta.c \
+		count_mov.c
 	
 B_SRCS = checker.c \
 		instructionsII_bonus.c \

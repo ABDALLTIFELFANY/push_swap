@@ -6,7 +6,7 @@
 /*   By: abelfany <abelfany@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 10:50:43 by abelfany          #+#    #+#             */
-/*   Updated: 2022/12/28 13:45:00 by abelfany         ###   ########.fr       */
+/*   Updated: 2022/12/30 15:47:57 by abelfany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,13 @@ typedef struct s_mix
 	t_nvr	*last;
 }	t_mix;
 
+typedef struct s_lis
+{
+	t_nvr	*indxs;
+	int		*tab;
+	int		*arr;
+}	t_lis;
+
 typedef struct s_var2
 {
 	int		x;
@@ -87,6 +94,10 @@ typedef struct s_var2
 	t_nvr	*reg;
 	t_nvr	*last;
 	t_nvr	*indexs;
+	int		*art;
+	t_nvr	*list;
+	int		j;
+	int		a;
 }	t_var2;
 
 long long		ft_atoi(const char *str);
@@ -97,6 +108,8 @@ void			push_swap(char **sot, int cnt);
 void			check_case(char **tar);
 int				check_sort(t_nvr *t);
 char			*ft_strjoin(int size, char **strs, char *sep);
+int				find_big(int *arr, int size);
+void			ft_save(t_nvr **root, int *item, int mark, int elem);
 t_nvr			*ft_lstnew(int *val);
 int				ft_lstsize(t_nvr *lst);
 void			insert(t_nvr **root, int item);
@@ -108,23 +121,22 @@ void			reverse_rotate_a_b(t_nvr **a, char c);
 void			sw_ss(int *a, int *b, int *x, int *y);
 void			rotate_rr(t_nvr **a, t_nvr **b);
 void			reverse_rotate_rrr(t_nvr **a, t_nvr **b);
-int				find_longest(t_nvr *lst, int *lenght, int size);
 t_nvr			*link_lst(t_nvr **head);
 void			sort_stacks(t_nvr **sta, t_nvr **stb, t_nvr **lis);
 void			check_and_rotate(t_nvr **sta, t_nvr **stb, int kk, char c);
-t_nvr			*find_who_p_b(t_nvr *sta, int kk, int size);
-void			find_it(t_nvr **tab, int kk, int size);
 t_nvr			*count_mv(t_nvr *sta, t_nvr *stb);
 int				half(t_nvr *sta, int kk);
 t_nvr			*ft_lstlast(t_nvr *lst);
-t_nvr 			*ft_lis(t_nvr *lis, int size);
+t_nvr			*ft_lis(t_nvr *lis, int size, int min, t_nvr *last);
 int				find_big_one(t_nvr *arr);
 int				find_small(t_nvr *arr);
-int				half(t_nvr *sta, int kk);
 void			return_to_sta(t_nvr **sta, t_nvr **stb);
 void			d_link(t_nvr **stack, t_nvr *last, t_nvr *reg);
 t_nvr			*find_best_mov(t_nvr *all);
 int				hi(t_nvr *sta, int kk);
 void			check_a(t_nvr **sta, int kk, char c);
+int				hi(t_nvr *sta, int kk);
+int				count_stb(t_nvr *stb, int elem, int *mark);
+int				count_sta(t_nvr *taa, int elem, int size, int *mark);
 
 #endif

@@ -6,11 +6,24 @@
 /*   By: abelfany <abelfany@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 11:43:23 by abelfany          #+#    #+#             */
-/*   Updated: 2022/12/25 17:01:47 by abelfany         ###   ########.fr       */
+/*   Updated: 2022/12/29 16:11:48 by abelfany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	ft_lstsize(t_nvr *lst)
+{
+	int	a;
+
+	a = 0;
+	while (lst != NULL)
+	{
+		lst = lst-> next;
+		a++;
+	}
+	return (a);
+}
 
 void	d_link(t_nvr **stack, t_nvr *last, t_nvr *reg)
 {
