@@ -6,7 +6,7 @@
 /*   By: abelfany <abelfany@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 17:24:38 by abelfany          #+#    #+#             */
-/*   Updated: 2022/12/30 13:04:57 by abelfany         ###   ########.fr       */
+/*   Updated: 2022/12/31 17:16:52 by abelfany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void	rotate_rr(t_nvr **a, t_nvr **b)
 	k = (*a)-> stack;
 	tmp = tmp-> next;
 	stmp = tmp;
+	free(*a);
 	while (tmp-> next != NULL)
 		tmp = tmp -> next;
 	tmp -> next = ft_lstnew(&k);
@@ -59,6 +60,7 @@ void	rotate_rr(t_nvr **a, t_nvr **b)
 	k = (*b)-> stack;
 	tmp = tmp -> next;
 	stmp = tmp;
+	free(*b);
 	while (tmp -> next != NULL)
 		tmp = tmp -> next;
 	tmp -> next = ft_lstnew(&k);
@@ -75,6 +77,7 @@ void	reverse_rotate_rrr(t_nvr **a, t_nvr **b)
 	while (tmp -> next)
 		tmp = tmp -> next;
 	k = tmp -> stack;
+	free(tmp);
 	tmp = *a;
 	while (tmp -> next -> next != NULL)
 		tmp = tmp -> next;
@@ -84,6 +87,7 @@ void	reverse_rotate_rrr(t_nvr **a, t_nvr **b)
 	while (tmp -> next)
 		tmp = tmp -> next;
 	k = tmp -> stack;
+	free(tmp);
 	tmp = *b;
 	while (tmp -> next -> next != NULL)
 		tmp = tmp -> next;

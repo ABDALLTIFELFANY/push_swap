@@ -6,7 +6,7 @@
 /*   By: abelfany <abelfany@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 10:50:43 by abelfany          #+#    #+#             */
-/*   Updated: 2022/12/30 15:47:57 by abelfany         ###   ########.fr       */
+/*   Updated: 2022/12/31 17:22:14 by abelfany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,12 +101,14 @@ typedef struct s_var2
 }	t_var2;
 
 long long		ft_atoi(const char *str);
+int				ft_free(char **strs);
+void			ft_lstdelone(t_nvr **lst);
 t_nvr			*final_mov(t_nvr **sta, t_nvr **stb);
 char			**ft_split(char const *s, char c);
 int				ft_strcmp(char *s1, char *s2);
 void			push_swap(char **sot, int cnt);
 void			check_case(char **tar);
-int				check_sort(t_nvr *t);
+int				check_sort(t_nvr *t, char **strs);
 char			*ft_strjoin(int size, char **strs, char *sep);
 int				find_big(int *arr, int size);
 void			ft_save(t_nvr **root, int *item, int mark, int elem);

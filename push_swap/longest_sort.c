@@ -6,21 +6,11 @@
 /*   By: abelfany <abelfany@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 16:26:23 by abelfany          #+#    #+#             */
-/*   Updated: 2022/12/30 13:05:49 by abelfany         ###   ########.fr       */
+/*   Updated: 2022/12/31 11:08:36 by abelfany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	*ft_memset(void *b, int c, size_t len)
-{
-	unsigned char	*ptr;
-
-	ptr = (unsigned char *) b;
-	while (len--)
-		*ptr++ = (unsigned char) c;
-	return (b);
-}
 
 void	fil_list(t_nvr **lst, int inx)
 {
@@ -52,7 +42,7 @@ t_nvr	*longest_inc(int *tab, int *arr, int lis, t_nvr *head)
 		}
 		fil_list(&nb.list, head -> stack);
 	}
-	return (nb.list);
+	return (free(nb.art), nb.list);
 }
 
 void	ft_lis_utils(int *arr, int *tab, t_nvr *lis, int size)
@@ -92,10 +82,14 @@ t_nvr	*ft_lis(t_nvr *lng, int size, int min, t_nvr *last)
 	lis.tab = malloc(sizeof(int) * size);
 	lis.arr = malloc(sizeof(int) * size);
 	reg = lng;
+	while (a < size)
+		lis.tab[a++] = 1;
 	while (lng -> stack != min)
 		lng = lng -> next;
 	head = lng;
 	ft_lis_utils(lis.arr, lis.tab, lng, size);
 	lis.indxs = longest_inc(lis.tab, lis.arr, find_big(lis.tab, size), head);
+	free(lis.tab);
+	free(lis.arr);
 	return (d_link(&lng, last, reg), lis.indxs);
 }

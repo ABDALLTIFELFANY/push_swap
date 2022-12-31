@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelfany <abelfany@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 17:08:43 by abelfany          #+#    #+#             */
-/*   Updated: 2022/12/25 14:08:23 by abelfany         ###   ########.fr       */
+/*   Updated: 2022/12/31 17:09:00 by abelfany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "get_line.h"
 
-static int	ft_strlen(char *str)
+static int	ft_countlen(char *str)
 {
 	int	x;
 
@@ -60,8 +60,8 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 		return (ar);
 	}
 	while (a < size)
-		x = x + ft_strlen(strs[a++]);
-	y = ft_strlen(sep) * (size - 1);
+		x = x + ft_countlen(strs[a++]);
+	y = ft_countlen(sep) * (size - 1);
 	y = x + y;
 	ar = (char *)malloc(y * sizeof(char));
 	jwan(size, strs, sep, ar);

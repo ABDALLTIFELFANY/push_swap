@@ -6,7 +6,7 @@
 /*   By: abelfany <abelfany@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 18:12:19 by abelfany          #+#    #+#             */
-/*   Updated: 2022/12/26 10:56:45 by abelfany         ###   ########.fr       */
+/*   Updated: 2022/12/31 16:59:57 by abelfany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,13 @@ char	*ft_strdup(const char *s1)
 	return (cpy);
 }
 
-void	ft_free(char *hold, char *buff)
+void	ft_ft_free(char *hold, char *buff)
 {
 	free(hold);
 	free(buff);
 }
 
-char	*get_next_line(int fd)
+char	*get_line(int fd)
 {
 	static char	*save;
 	t_get		x;
@@ -59,10 +59,10 @@ char	*get_next_line(int fd)
 		x.s2 = ft_join(x.s2, x.buff);
 		if (!(x.s2))
 			return (NULL);
-		ft_free(x.hold, x.buff);
+		ft_ft_free(x.hold, x.buff);
 		x.s1 = check(x.s2);
 		if (x.s1 != 0)
-			return (save = ft_save(x.s2), free(x.s2), x.s1);
+			return (save = ft_ft_save(x.s2), free(x.s2), x.s1);
 	}
 	return (free(x.s1), save = NULL, x.s2);
 }

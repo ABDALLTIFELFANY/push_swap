@@ -6,7 +6,7 @@
 /*   By: abelfany <abelfany@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 10:46:54 by abelfany          #+#    #+#             */
-/*   Updated: 2022/12/30 16:28:50 by abelfany         ###   ########.fr       */
+/*   Updated: 2022/12/31 17:26:51 by abelfany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,33 +32,15 @@ int	ft_strlen(char *str)
 	return (x);
 }
 
-long long	ft_atoi(const char *str)
+int	ft_free(char **strs)
 {
-	int			a;
-	long long	res;
-	int			nb;
+	int	x;
 
-	a = 0;
-	nb = 1;
-	res = 0;
-	if (str[a] == '-' && str[a + 1] == '-')
-	{
-		printf("Erorr!\n");
-		exit(0);
-	}
-	while ((str[a] >= 9 && str[a] <= 13) || str[a] == ' ')
-		a++;
-	if (str[a] == '-')
-		nb *= -1;
-	if (str[a] == '+' || str[a] == '-')
-		a++;
-	while (str[a] >= 48 && str[a] <= 57)
-	{
-		res *= 10;
-		res = res + str[a] - 48;
-		a++;
-	}
-	return (res * nb);
+	x = 0;
+	while (strs[x])
+		free(strs[x++]);
+	free(strs);
+	return (0);
 }
 
 void	push_swap(char **sot, int cnt)
@@ -75,19 +57,22 @@ void	push_swap(char **sot, int cnt)
 	b = NULL;
 	x.str = ft_strjoin(cnt, sot, " ");
 	sot = ft_split(x.str, ' ');
+	free(x.str);
 	check_case(sot);
 	while (++x.a < ft_lenstrs(sot))
 		insert(&a, ft_atoi(sot[x.a]));
-	check_sort(a);
+	check_sort(a, sot);
 	indexs = ft_lis(a, ft_lstsize(a), find_small(a), link_lst(&a));
 	sort_stacks(&a, &b, &indexs);
 	return_to_sta(&a, &b);
 	check_a(&a, find_small(a), 'a');
+	ft_free(sot);
+	ft_lstdelone(&a);
+	ft_lstdelone(&indexs);
 }
 
 int	main(int ac, char **av)
 {
 	if (ac >= 2)
 		push_swap(av, ac);
-	//while(1){};
 }

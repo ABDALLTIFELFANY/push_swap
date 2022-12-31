@@ -6,13 +6,13 @@
 /*   By: abelfany <abelfany@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 12:40:19 by abelfany          #+#    #+#             */
-/*   Updated: 2022/12/25 15:22:13 by abelfany         ###   ########.fr       */
+/*   Updated: 2022/12/31 21:08:05 by abelfany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_sort(t_nvr *t)
+int	check_sort(t_nvr *t, char **strs)
 {
 	int	j;
 
@@ -24,7 +24,7 @@ int	check_sort(t_nvr *t)
 		t = t-> next;
 	}
 	if (j == 0)
-		exit(0);
+		exit(ft_free(strs));
 	return (1);
 }
 
@@ -58,13 +58,13 @@ void	check_case(char **tar)
 			if ((tar[b] && ft_strcmp(tar[a], tar[b]) == 0) || tar[a][0] == '\0')
 			{
 				write(1, "Erorr!\n", 7);
-				exit(0);
+				exit(ft_free(tar));
 			}
-			x = atoi(tar[a]);
+			x = ft_atoi(tar[a]);
 			if (ft_isalpha(tar[a]) == 1 || x > INT_MAX || x < INT_MIN)
 			{
 				write(1, "Erorr!\n", 7);
-				exit(0);
+				exit(ft_free(tar));
 			}
 		}
 		a++;

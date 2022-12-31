@@ -6,7 +6,7 @@
 /*   By: abelfany <abelfany@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 19:28:39 by abelfany          #+#    #+#             */
-/*   Updated: 2022/12/30 16:07:30 by abelfany         ###   ########.fr       */
+/*   Updated: 2022/12/31 11:06:42 by abelfany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,5 +126,6 @@ void	return_to_sta(t_nvr **sta, t_nvr **stb)
 		final = final_mov(sta, stb);
 		elem = find_best_mov(final);
 		push(sta, stb, elem);
+		ft_lstdelone(&final);
 	}
 }

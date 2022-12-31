@@ -6,7 +6,7 @@
 /*   By: abelfany <abelfany@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 18:40:12 by abelfany          #+#    #+#             */
-/*   Updated: 2022/12/25 22:08:58 by abelfany         ###   ########.fr       */
+/*   Updated: 2022/12/31 13:38:51 by abelfany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ size_t	ft_strlen(const char *str)
 	return (x);
 }
 
-char	*ft_save(char *str)
+char	*ft_ft_save(char *str)
 {
 	char	*sv;
 	int		b;
